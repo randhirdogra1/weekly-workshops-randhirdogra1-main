@@ -24,6 +24,7 @@ h1 {
 	position:relative;
 	font-size:xx-large;
 	text-align:2em;
+	text-indent:80px;
 	background-color:rgb(144, 235, 171)
 }
 
@@ -31,6 +32,7 @@ h2{
 	margin:10;
 	padding:10;
 	text-align: left;
+	left:80px;
 	font-size:medium;
 	color:#615d5d;
 	font-family: 'Kaushan Script';
@@ -45,15 +47,24 @@ p {
 	position:relative;
 }
 
+
 .pagewrapper{
 	display:grid;
 	grid-template-columns:2fr, 1fr;
+	position:relative;
 }
 .intro{
 	grid-column:1;
 	grid-row:1;
+	padding-left:50px;
+	padding-right:50px;
 }
 .sidebar{
-	grid-column-start:3;
-	grid-column-end:4;
+	grid-column:3;
+	grid-row:1;
+	margin-left:1300px;
+	top:0;
+	right:0;
+	position:absolute;
+	background-color:rgb(144, 235, 171);
 }
