@@ -1,4 +1,3 @@
-
 let first = document.getElementById('button1')
 let second = document.getElementById('button2')
 let third = document.getElementById('button3')
