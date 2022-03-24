@@ -8,3 +8,4 @@ replaceHeadline("Comp2110 found to be the best unit in the universe")
 
 document.getElementsByTagName("tm_fpblock_item_title)[0].innerText="new Text"
 
+Finished stylesheet and js 
