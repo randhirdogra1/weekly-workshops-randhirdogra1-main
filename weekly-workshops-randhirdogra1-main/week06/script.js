@@ -45,7 +45,7 @@ function switchViews(){
     } else {
         currentView=briefView;
     }
-    currentView("people", people);
+    currentView("switch", people);
 }
 
 
