@@ -13,8 +13,7 @@ const loadData = () => {
         return response.json();
     })
     .then((data) =>{
-    allBooks=data.allBooks
-    console.log(data)
+    allBooks=data.books
     redraw()
 })
 
@@ -23,10 +22,35 @@ const loadData = () => {
     console.error(error)
 })
 }
+
+const getBook = (id) =>{
+    for(let i=0; i <allBooks.length; i++){
+        if (allBooks[i].id == id){
+            return allBooks[i]
+        }
+    }
+    return null
+}
+
+const getBooks = () =>{
+    return allBooks
+}
 // redraw is called whenever the page needs to be 
 // updated, it calls the appropriate view function
 const redraw = () => {
-    viewHome('content')
+    const pathInfo = split_hash(window.location.hash)
+
+    if(pathInfo.path == "books"){
+        if(pathInfo.id){
+            const book = getBook(pathInfo.id)
+            bookView('content', book)
+        }else{
+            const books = getBooks()
+            bookListView('content', books)
+        }
+    }else{
+        viewHome('content')
+    }
 }
 
 const viewHome = (id) =>{
@@ -35,7 +59,7 @@ const viewHome = (id) =>{
     target.innerHTML = text;
 }
 
-function viewBooks(id, books){
+function bookView(id, book){
     const template = Handlebars.compile(`
     {{#each book}}
     <d1>
@@ -47,5 +71,6 @@ function viewBooks(id, books){
 }
 
 window.onload = loadData;
+window.onhashchange = redraw;
 
 
