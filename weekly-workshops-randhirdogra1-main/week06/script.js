@@ -38,7 +38,7 @@ function detailView(targetindex, people){
     target.innerHTML = list;
 }
 
-let currentView = briefView;
+let currentView = detailView;
 function switchViews(){
     if(currentView==briefView){
         currentView==detailView
